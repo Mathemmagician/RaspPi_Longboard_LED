@@ -1,4 +1,4 @@
-
+from constants import *
 ''' LONGBOARD
 
   130 BMR BML 131
@@ -18,7 +18,8 @@
 '''
 
 
-def forward_pulse(w=20, start=FML, delta=4):
+def forward_pulse(w=20, start=FML, delta=3):
+    global pixels
     'sends pulses from the given point to opposite'
     try:
         pixels.fill(BLUE)
@@ -31,6 +32,7 @@ def forward_pulse(w=20, start=FML, delta=4):
 
 
 def forward_beat(w=5, start=FML, delta=1):
+    global pixels
     'sends beats from the given point to opposite'
     try:
         pixels.fill((255, 255, 0))
@@ -45,6 +47,7 @@ def forward_beat(w=5, start=FML, delta=1):
 
 
 def turning(w=4, delta=3, color=(128, 0, 128)):
+    global pixels
     'right -> postivie delta, left -> negative delta'
     try:
         pixels.fill((200, 40, 0))
@@ -57,6 +60,7 @@ def turning(w=4, delta=3, color=(128, 0, 128)):
 
 
 def sideLight(side='right', delta=1):
+    global pixels
     try:
         pixels.fill((0,0,0))
 
@@ -71,6 +75,7 @@ def random_bright_color():
 
 
 def disco(w=5):
+    global pixels
     try:
         pixels.fill(BLACK)
         for i in range(disco.start, num_pixels, w):
@@ -95,6 +100,7 @@ def hsv2rgb(h,s,v):
 
 
 def rainbow():
+    global pixels
     'Smart people use HSV for ranbow'
     try:
         color = hsv2rgb(rainbow.time/360, 1, 1)
